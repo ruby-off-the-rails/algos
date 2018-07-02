@@ -9,20 +9,14 @@
 # loopthrough the numbers 1-999
 
 i = 1
-nums_divisible_by_three_or_five = []
+sum = 0
+
 999.times do
   # is this a multiple of 3 or 5
-  if i % 3 == 0
-    nums_divisible_by_three_or_five << i
-  elsif i % 5 == 0
-    nums_divisible_by_three_or_five << i
+  if i % 3 == 0 || i % 5 == 0
+    sum += i
   end
   i += 1
-end
-
-sum = 0
-nums_divisible_by_three_or_five.each do |number|
-  sum += number
 end
 
 p sum
