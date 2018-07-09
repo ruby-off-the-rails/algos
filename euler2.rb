@@ -5,13 +5,20 @@
 # By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
 # ---------------
 # make a fibonacci sequence of indeterminate length
+# stop making the sequence before the last value in the array is greater the 4000000
 fib_sequence = [1,2]
-while fib_sequence.length < 10
-  fib_sequence << (fib_sequence[fib_sequence.length - 2] + fib_sequence[fib_sequence.length - 1])
+while (fib_sequence[-2] + fib_sequence[-1]) < 4000000
+  fib_sequence << (fib_sequence[-2] + fib_sequence[-1])
 end
 
-p fib_sequence
+# p fib_sequence
 
-# stop making the sequence before the last value in the array is greater the 4000000
 # take all the values and get rid of all the odd ones
+even_fibs = fib_sequence.select {|num| num % 2 == 0}
 # take all the even values and add them up
+sum = 0
+even_fibs.each do |number|
+  sum += number
+end
+
+p sum
