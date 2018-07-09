@@ -19,5 +19,29 @@ while next_number_added < 4000000
 end
 
 
-p fib_sequence
+fib_sequence
+sum
+
+
+
+# recursive
+def fib_recursive(number)
+  if number == 1 || number == 0
+    return 1
+  else
+    return fib_recursive(number - 1) + fib_recursive(number - 2)
+  end
+end
+
+fib = 0
+count = 0
+sum = 0
+
+while fib < 4000000
+  count += 1
+  fib = fib_recursive(count)
+  if fib % 2 == 0
+    sum += fib
+  end
+end
 p sum
