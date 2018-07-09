@@ -7,18 +7,14 @@
 # make a fibonacci sequence of indeterminate length
 # stop making the sequence before the last value in the array is greater the 4000000
 fib_sequence = [1,2]
-while (fib_sequence[-2] + fib_sequence[-1]) < 4000000
-  fib_sequence << (fib_sequence[-2] + fib_sequence[-1])
-end
-
-# p fib_sequence
-
-# take all the values and get rid of all the odd ones
-even_fibs = fib_sequence.select {|num| num % 2 == 0}
-# take all the even values and add them up
-sum = 0
-even_fibs.each do |number|
-  sum += number
+next_number_added = 3
+sum = 2
+while next_number_added < 4000000
+  fib_sequence << next_number_added
+  if next_number_added % 2 == 0
+    sum += next_number_added
+  end
+  next_number_added = (fib_sequence[-2] + fib_sequence[-1])
 end
 
 p sum
