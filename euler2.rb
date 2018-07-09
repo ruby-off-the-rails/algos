@@ -11,10 +11,13 @@ next_number_added = 3
 sum = 2
 while next_number_added < 4000000
   fib_sequence << next_number_added
+  fib_sequence.shift
   if next_number_added % 2 == 0
     sum += next_number_added
   end
   next_number_added = (fib_sequence[-2] + fib_sequence[-1])
 end
 
+
+p fib_sequence
 p sum
